@@ -1,0 +1,155 @@
+﻿@model MatinloAdventures.Web.Models.TourPackages.TourPackageIndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="wrapper row3">
+    <div class="tourpackages-background">
+        <h1>Рай на райски цени</h1>
+        <div class="video-container">
+            <div class="color-overlay"></div>
+            <video autoplay loop muted>
+                <source src="video/beach_drone.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <main class="hoc container clear">
+        <!-- main body -->
+  <!-- ################################################################################################ -->
+        <div class="content">
+            <!-- ################################################################################################ -->
+            <h1>Среден ценоразпис за едно пътешествие</h1>
+            <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
+            <p>Aenean gravida elit risus, ac rhoncus nunc molestie ac. Quisque vehicula nibh dui, a ultricies ex eleifend quis. In in auctor diam. Mauris dictum sem sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut vel porttitor purus.</p>
+            <p>Dapiensociis <a href="#">temper donec auctortortis cumsan</a> et curabitur condis lorem loborttis leo. Ipsumcommodo libero nunc at in velis tincidunt pellentum tincidunt vel lorem.</p>
+            <img class="imgl borderedbox inspace-5" src="../images/demo/imgl.gif" alt="">
+            <p>Aenean diam enim, venenatis nec auctor in, accumsan vitae sem. Aliquam quis neque lacinia, ultricies turpis vel, viverra neque. Maecenas aliquam, urna eu hendrerit imperdiet, felis felis dapibus tellus, sit amet efficitur tortor urna at nulla. Sed vestibulum pretium magna, vel lobortis ante viverra lacinia.</p>
+            <p>Mauris erat felis, ultrices ac pellentesque eget, volutpat sit amet enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quam eros, mollis non tellus ut, vehicula malesuada nunc. Sed gravida est ac libero posuere consectetur.</p>
+            <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p>
+            <h1>Цени</h1>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Create" class="btn btn-success">Create New</a>
+            }
+
+            <hr/>
+            <div class="scrollable">
+                @foreach (var tourPackage in Model.TourPackages)
+                {
+                    <h1>@tourPackage.Key</h1>
+
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Услуга / Пакет</th>
+                            <th>Вътрешен транспорт*</th>
+                            <th>Нощувка</th>
+                            <th>Приключения **</th>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <th>Actions</th>
+                            }
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in tourPackage)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.TransportationPrice &euro;</td>
+                                <td>@item.AccomodationPrice &euro;</td>
+                                <td>
+                                    <a href="#">@item.AdventuresPrice &euro;</a>
+                                </td>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <td>
+                                        <a asp-area="" asp-controller="TourPackages" asp-action="Edit" asp-route-id="@item.Id" class="btn-default">Edit</a>
+                                        <a asp-area="" asp-controller="TourPackages" asp-action="Details" asp-route-id="@item.Id" class="btn-info">Details</a>
+                                        <a asp-area="" asp-controller="TourPackages" asp-action="Delete" asp-route-id="@item.Id" class="btn-danger">Delete</a>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+
+                    <hr/>
+                }
+            </div>
+
+            <div id="comments">
+                <h2>Comments</h2>
+                <ul id="prices-comments-ul">
+                    @foreach (var comment in Model.Comments)
+                    {
+                        <li>
+                            <article>
+                                <header>
+                                    <figure class="avatar">
+                                        <img src="../images/demo/avatar.png" alt="">
+                                    </figure>
+                                    <address>
+                                        By <a href="#">@comment.Username</a>
+                                    </address>
+                                    <time>@comment.DateCreated</time>
+                                </header>
+                                <div class="comcont">
+                                    <p>@comment.Content</p>
+                                </div>
+                            </article>
+                        </li>
+                    }
+                </ul>
+
+                <h2>Write A Comment</h2>
+                <form>
+                    <div class="one_third first">
+                        <label for="name">Name <span>*</span></label>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <input type="text" name="name" id="name" value="@Model.Username" size="22" required disabled>
+                        }
+                        else
+                        {
+                            <input type="text" name="name" id="name" value="" size="22" required>
+                        }
+                    </div>
+                    <div class="one_third">
+                        <label for="email">Mail <span>*</span></label>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <input type="email" name="email" id="email" value="@Model.Email" size="22" required disabled>
+                        }
+                        else
+                        {
+                            <input type="email" name="email" id="email" value="" size="22" required>
+                        }
+                    </div>
+                    <div class="one_third">
+                        <label for="url">Website</label>
+                        <input type="url" name="url" id="url" value="" size="22">
+                    </div>
+                    <div class="block clear">
+                        <label for="comment">Your Comment</label>
+                        <textarea name="comment" id="comment" cols="25" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <input type="button" onclick="addCommentLi()" name="submit" value="Submit Comment">
+                        &nbsp;
+                    </div>
+                </form>
+            </div>
+            <!-- ################################################################################################ -->
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- / main body -->
+        <div class="clear"></div>
+    </main>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/prices.js"></script>
+}

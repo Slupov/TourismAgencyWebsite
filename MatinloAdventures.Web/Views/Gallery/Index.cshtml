@@ -1,0 +1,90 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+        <div class="content">
+            <!-- ################################################################################################ -->
+            <div id="gallery">
+                <figure>
+                    <header class="heading">Галерия</header>
+                    <ul class="nospace clear">
+                        @{
+                            int i = 0;
+                            string cssClass = "one_quarter";
+
+                            foreach (var imgPath in Model)
+                            {
+                                if (i % 4 == 0)
+                                {
+                                    cssClass += " first";
+                                }
+
+                                <li class="@cssClass">
+                                    <a href="#">
+                                        <img class="slider-element" src="@imgPath" alt="">
+                                    </a>
+                                </li>
+
+                                cssClass = "one_quarter";
+                                ++i;
+                            }
+                        }
+                    </ul>
+                    <figcaption>Галерия от местата които вече посетихме</figcaption>
+                </figure>
+            </div>
+            <!-- ################################################################################################ -->
+            <!-- ################################################################################################ -->
+            <nav class="pagination">
+                <ul>
+                    <li>
+                        <a href="#">&laquo; Previous</a>
+                    </li>
+                    <li>
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <strong>&hellip;</strong>
+                    </li>
+                    <li>
+                        <a href="#">6</a>
+                    </li>
+                    <li class="current">
+                        <strong>7</strong>
+                    </li>
+                    <li>
+                        <a href="#">8</a>
+                    </li>
+                    <li>
+                        <a href="#">9</a>
+                    </li>
+                    <li>
+                        <strong>&hellip;</strong>
+                    </li>
+                    <li>
+                        <a href="#">14</a>
+                    </li>
+                    <li>
+                        <a href="#">15</a>
+                    </li>
+                    <li>
+                        <a href="#">Next &raquo;</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- ################################################################################################ -->
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- / main body -->
+        <div class="clear"></div>
+    </main>
+</div>

@@ -1,0 +1,38 @@
+﻿@model MatinloAdventures.Data.Models.TourPackage
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <h2>Details TourPackage</h2>
+        <hr/>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TransportationPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TransportationPrice)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AccomodationPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AccomodationPrice)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AdventuresPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AdventuresPrice)
+            </dd>
+        </dl>
+        
+        <div>
+            <a asp-action="Edit" class="btn" asp-route-id="@Model.Id">Edit</a>
+            <a asp-action="Index" class="btn">Back to List</a>
+        </div>
+    </main>
+</div>

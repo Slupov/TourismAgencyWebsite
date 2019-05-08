@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - MatinloAdventures.Web</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="~/css/site.css"/>
+        <link rel="stylesheet" href="~/css/contacts.css"/>
+        <link rel="stylesheet" href="~/css/custom.flexslider.css"/>
+        <link rel="stylesheet" href="~/css/fontawesome-4.6.3.min.css"/>
+        <link rel="stylesheet" href="~/css/framework.css"/>
+        <link rel="stylesheet" href="~/css/gallery.css"/>
+        <link rel="stylesheet" href="~/css/layout.css"/>
+        <link rel="stylesheet" href="~/css/login.css"/>
+        <link rel="stylesheet" href="~/css/weather.css"/>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
+    </environment>
+</head>
+<body id="top">
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row0">
+        <div id="topbar" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <div class="fl_left">
+                <ul class="nospace">
+                    <li><i class="fa fa-phone"></i> +359 885 98 37 69</li>
+                    <li><i class="fa fa-envelope-o"></i> info@matinlo-adventures.com</li>
+                </ul>
+            </div>
+            <div class="fl_right">
+                <ul class="nospace">
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fa fa-lg fa-home"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="About">За нас</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Contact">Контакти</a>
+                    </li>
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- Top Background Image Wrapper -->
+    @{
+        var style = "";
+
+        bool isHomePage = string.Equals((string)ViewData["Title"], "Home Page", StringComparison.Ordinal);
+        if (isHomePage)
+        {
+            style = "background-image:url('images/demo/backgrounds/02.jpg');";
+        }
+    }
+
+<div class="bgded overlay" style="@style">
+    <!-- ################################################################################################ -->
+        <div class="wrapper row1">
+            <header id="header" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <div id="logo" class="fl_left">
+                    <h1>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Matinlo Adventures</a>
+                    </h1>
+                </div>
+                <nav id="mainav" class="fl_right">
+                    <ul class="clear">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li>
+                            <a class="drop" href="#">Навигация</a>
+                            <ul>
+                                <li>
+                                    <a asp-area="" asp-controller="Gallery" asp-action="Index">Галерия</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="TourPackages" asp-action="Index">Цени</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Home" asp-action="BasicGrid">Basic Grid</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="drop" href="#">Dropdown</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Level 2</a>
+                                </li>
+                                <li>
+                                    <a class="drop" href="#">Level 2 + Drop</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Level 3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Level 3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Level 3</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Level 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Weather">Времето</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Faq" asp-controller="Home" asp-action="Index">Често задавани въпроси</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- ################################################################################################ -->
+            </header>
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        @if (!isHomePage)
+        {
+            <div class="wrapper row2">
+                <div id="breadcrumb" class="hoc clear">
+                    <!-- ################################################################################################ -->
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem</a>
+                        </li>
+                        <li>
+                            <a href="#">Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Dolor</a>
+                        </li>
+                    </ul>
+                    <!-- ################################################################################################ -->
+                </div>
+            </div>
+        }
+        else
+        {
+            <div id="pageintro" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <div class="flexslider basicslider">
+                    <ul class="slides">
+                        <li>
+                            <article>
+                                <p>Опознайте света</p>
+                                <h3 class="heading">Приключения и почивки из красивите острови на Филипините</h3>
+                                <p>Най-добрата туристическа компания за 2018</p>
+                                <footer><a class="btn" href="pages/register.html">Впусни се в приключението</a></footer>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <p>Осигурен транспорт</p>
+                                <h3 class="heading">Организирани самолетни полети</h3>
+                                <p>Ние ще се погрижим изцяло за транспортните планове</p>
+                                <footer><a class="btn inverse" href="#">Виж условия</a></footer>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <p>Отдих</p>
+                                <h3 class="heading">Настаняване в характерни филипински жилища и хотели</h3>
+                                <p>Изберете между лукс и автентичност</p>
+                                <footer><a class="btn" href="#">Виж условия</a></footer>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ################################################################################################ -->
+            </div>
+            <!-- ################################################################################################ -->
+        }
+        <!-- ################################################################################################ -->
+    </div>
+    <!-- End Top Background Image Wrapper -->
+    <partial name="_CookieConsentPartial" />
+
+    @RenderBody()
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- Footer Background Image Wrapper -->
+    <div class="bgded overlay">
+        <!-- ################################################################################################ -->
+        <div class="wrapper row4">
+            <footer id="footer" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <div class="btmspace-50 center">
+                    <h2 class="heading">Очакваме Ви за едно незабравимо изживяване</h2>
+                    <p>За повече информация и контакти с наши представители</p>
+                </div>
+                <ul class="nospace group">
+                    <li class="one_quarter first">
+                        <div class="infobox">
+                            <i class="fa fa-phone"></i>
+                            <ul class="nospace">
+                                <li>+359 885 98 37 69</li>
+                                <li>+359 885 98 69 69</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="one_quarter">
+                        <div class="infobox">
+                            <i class="fa fa-envelope-o"></i>
+                            <ul class="nospace">
+                                <li>
+                                    <a href="#"> info@matinlo-adventures.com</a>
+                                </li>
+                                <li>
+                                    <a href="#">stoyan.lupov@gmail.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="one_quarter">
+                        <div class="infobox">
+                            <i class="fa fa-clock-o"></i>
+                            <ul class="nospace">
+                                <li>Пон - Пет: 9.00 до 17.00</li>
+                                <li>Съб: 9.00 до 13.00</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="one_quarter">
+                        <div class="infobox">
+                            <i class="fa fa-support"></i>
+                            <ul class="nospace">
+                                <li>
+                                    <a href="#">Онлайн помощ</a>
+                                </li>
+                                <li>
+                                    <a href="#">Чат на живо</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <!-- ################################################################################################ -->
+            </footer>
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <nav class="quicklinks row4">
+            <ul class="hoc clear">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-lg fa-home"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+                <li>
+                    <a href="#">FAQ</a>
+                </li>
+                <li>
+                    <a href="#">Shop</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <div class="wrapper row5">
+            <div id="copyright" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Matinlo Adventures</a></p>
+                <p class="fl_right">Template by Stoyan Lupov</p>
+                <!-- ################################################################################################ -->
+            </div>
+        </div>
+        <!-- ################################################################################################ -->
+    </div>
+    <!-- End Footer Background Image Wrapper -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/jquery.backtotop.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.flexslider-min.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.min.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.mobilemenu.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

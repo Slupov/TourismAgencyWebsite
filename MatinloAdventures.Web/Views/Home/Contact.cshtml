@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+        <div id="map"></div>
+        <!-- ################################################################################################ -->
+        <!-- / main body -->
+        <div class="clear"></div>
+    </main>
+</div>
+
+@section Scripts {
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIlazhQcp-5sneK4uuadwle_lscPfbxI4&callback=initMap">
+    </script>
+    <script src="~/js/contacts.js"></script>
+}

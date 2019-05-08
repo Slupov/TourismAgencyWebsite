@@ -1,0 +1,37 @@
+﻿@model MatinloAdventures.Data.Models.Faq
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <h2>Edit Faq</h2>
+        <hr/>
+
+        <div>
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id"/>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control"/>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Content" class="control-label"></label>
+                    <input asp-for="Content" class="form-control"/>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default"/>
+                </div>
+            </form>
+        </div>
+        
+        <hr/>
+        <div>
+            <a asp-action="Index" class="btn">Back to List</a>
+        </div>
+    </main>
+</div>

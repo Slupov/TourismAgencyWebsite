@@ -1,0 +1,12 @@
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\bin\Debug\netcoreapp2.1\MatinloAdventures.Data.deps.json
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\bin\Debug\netcoreapp2.1\MatinloAdventures.Data.dll
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\bin\Debug\netcoreapp2.1\MatinloAdventures.Data.pdb
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.SqlServer.xml
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\obj\Debug\netcoreapp2.1\MatinloAdventures.Data.csprojAssemblyReference.cache
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\obj\Debug\netcoreapp2.1\MatinloAdventures.Data.csproj.CoreCompileInputs.cache
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\obj\Debug\netcoreapp2.1\MatinloAdventures.Data.AssemblyInfoInputs.cache
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\obj\Debug\netcoreapp2.1\MatinloAdventures.Data.AssemblyInfo.cs
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\obj\Debug\netcoreapp2.1\MatinloAdventures.Data.csproj.CopyComplete
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\obj\Debug\netcoreapp2.1\MatinloAdventures.Data.dll
+D:\Projects\MatinloAdventures\MatinloAdventures.Data\obj\Debug\netcoreapp2.1\MatinloAdventures.Data.pdb

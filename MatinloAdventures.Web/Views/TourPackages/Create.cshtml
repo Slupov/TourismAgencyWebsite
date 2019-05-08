@@ -1,0 +1,49 @@
+﻿@model MatinloAdventures.Data.Models.TourPackage
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <h2>Create TourPackage</h2>
+        <hr/>
+
+        <div>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Destination" class="control-label"></label>
+                    <input asp-for="Destination" class="form-control"/>
+                    <span asp-validation-for="Destination" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TransportationPrice" class="control-label"></label>
+                    <input asp-for="TransportationPrice" class="form-control"/>
+                    <span asp-validation-for="TransportationPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AccomodationPrice" class="control-label"></label>
+                    <input asp-for="AccomodationPrice" class="form-control"/>
+                    <span asp-validation-for="AccomodationPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdventuresPrice" class="control-label"></label>
+                    <input asp-for="AdventuresPrice" class="form-control"/>
+                    <span asp-validation-for="AdventuresPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default"/>
+                    <a asp-action="Index" class="btn btn-default">Цени</a>
+                </div>
+            </form>
+        </div>
+
+
+    </main>
+</div>

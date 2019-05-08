@@ -1,0 +1,34 @@
+﻿@using MatinloAdventures.Data.Models
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<li>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})" method="post" id="logoutForm">
+            <ul>
+                <li>
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Здравейте, @UserManager.GetUserName(User)!</a>
+                </li>
+                <li>
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Изход</button>
+                </li>
+            </ul>
+        </form>
+    }
+    else
+    {
+        <ul>
+            <li>
+                <a asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
+            </li>
+            <li>
+                <a asp-area="Identity" asp-page="/Account/Login">Вход</a>
+            </li>
+        </ul>
+    }
+
+</li>

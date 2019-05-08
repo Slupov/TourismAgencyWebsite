@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MatinloAdventures.Data.Models.Faq>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .faq-title { color: #43BFCB; }
+    .btn-default {
+        color: black;
+        background: #43BFCB
+    }
+</style>
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <p>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Create" class="btn">Create New</a>
+            }
+        </p>
+
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <div id="comments">
+            <h2>Често задавани въпроси</h2>
+            <ul>
+                @foreach (var faq in Model)
+                {
+                    <li>
+                        <article>
+                            <header>
+                                <address class="faq-title">
+                                    @faq.Title
+                                </address>
+                            </header>
+                            <div class="comcont">
+                                <p>@Html.Raw(@faq.Content)</p>
+                            </div>
+                        </article>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-area="Faq" asp-controller="Home" asp-action="Edit" asp-route-id="@faq.Id" class="btn btn-default">Edit</a>
+                            <a asp-area="Faq" asp-controller="Home" asp-action="Delete" asp-route-id="@faq.Id" class="btn btn-default">Delete</a>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <!-- / main body -->
+        <div class="clear"></div>
+    </main>
+</div>
